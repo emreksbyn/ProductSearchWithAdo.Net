@@ -1,0 +1,37 @@
+﻿@model Products
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Ekle">Ekle</button>
+<div class="modal" id="Ekle">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Ekleme Ekranı</h4>
+            </div>
+            <form method="post" asp-action="Create" asp-controller="Product">
+                <div class="modal-body">
+
+                    <label asp-for="@Model.ProductName">Ürün Adı</label>
+                    <input asp-for="@Model.ProductName" class="form-control">
+                    <br>
+                    <label asp-for="@Model.Brand">Markası</label>
+                    <input asp-for="@Model.Brand" class="form-control">
+                    <br>
+                    <label asp-for="@Model.Price">Fiyatı</label>
+                    <input asp-for="@Model.Price" class="form-control">
+                    <br>
+                    <label asp-for="@Model.Stock">Stok</label>
+                    <input asp-for="@Model.Stock" class="form-control">
+                    <br>
+                    <button type="submit" asp-action="Create" asp-controller="Product" class="btn btn-success">Ekle</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br />

@@ -1,0 +1,40 @@
+﻿@model Products
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="margin-top:20px">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Ürün Güncelleme</h3>
+                </div>
+                <form action="/Product/Update" method="post">
+                    <input type="hidden" name="Id" value="@Model.ProductId" />
+                    <div class="box-body">
+                        <label asp-for="@Model.ProductId">Ürün Id</label>
+                        <input asp-for="@Model.ProductId" class="form-control" readonly>
+                        <br>
+                        <label asp-for="@Model.ProductName">Ürün Adı</label>
+                        <input asp-for="@Model.ProductName" class="form-control">
+                        <br>
+                        <label asp-for="@Model.Brand">Markası</label>
+                        <input asp-for="@Model.Brand" class="form-control">
+                        <br>
+                        <label asp-for="@Model.Price">Fiyatı</label>
+                        <input asp-for="@Model.Price" class="form-control">
+                        <br>
+                        <label asp-for="@Model.Stock">Stok</label>
+                        <input asp-for="@Model.Stock" class="form-control">
+                        <br>
+                        <button type="submit" asp-action="Update" asp-controller="Product" asp-route-id="@Model.ProductId" class="btn btn-success">Güncelle</button>
+                        <button class="btn btn-danger" asp-action="List" asp-controller="Product">Vazgeç</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 
